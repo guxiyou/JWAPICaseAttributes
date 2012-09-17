@@ -6,6 +6,9 @@
 		<Grid.RowDefinitions>
 			<RowDefinition Height="50"/>
 			<RowDefinition Height="25"/>
+			<RowDefinition Height="25"/>
+			<RowDefinition Height="50"/>
+			<RowDefinition Height="25"/>
 			<RowDefinition/>
 		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
@@ -17,7 +20,17 @@
 			<TextBlock Text="CaseID"/>
 			<TextBox Text="{Binding QueryCaseID, Mode=TwoWay}" />
 		</StackPanel>
-		<Button Grid.Column="1" Grid.Row="0" Margin="30,10,30,15" Content="Search" Click="Button_Click_1"/>
+		<Button Grid.Column="1" Grid.Row="0" Margin="30,10,30,15" Content="Search" Click="FindCase_Click"/>
 		<TextBlock Grid.Row="1" Grid.ColumnSpan="3" Text="{Binding Status}"/>
+		<StackPanel Grid.Row="3" Grid.Column="0" Margin="5,0,5,0">
+			<TextBlock Text="Case Attribute"/>
+			<ComboBox ItemsSource="{Binding CaseAttributeTypes}" SelectedValue="{Binding CaseAttribute, Mode=TwoWay}" SelectedValuePath="Code" DisplayMemberPath="Description" SelectionChanged="ComboBox_SelectionChanged_1" />
+		</StackPanel>
+		<StackPanel Grid.Row="3" Grid.Column="1" Margin="5,0,5,0">
+			<TextBlock Text="Attribute Value"/>
+			<ComboBox ItemsSource="{Binding CaseAttributeCodeListTypes}" SelectedValue="{Binding CodeListValue, Mode=TwoWay}" SelectedValuePath="Code" DisplayMemberPath="Description"/>
+		</StackPanel>
+		<Button Grid.Column="2" Grid.Row="3" Margin="30,10,30,15" Content="Save" Click="Save_Click"/>
+		<TextBlock Grid.Row="4" Grid.ColumnSpan="3" Text="{Binding SubmitStatus}"/>
 	</Grid>
 </Window>

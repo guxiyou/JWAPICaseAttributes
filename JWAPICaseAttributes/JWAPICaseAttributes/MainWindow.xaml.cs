@@ -31,9 +31,19 @@ namespace JWAPICaseAttributes
 			this.DataContext = _model;
 		}
 
-		private void Button_Click_1(object sender, RoutedEventArgs e)
+		private void FindCase_Click(object sender, RoutedEventArgs e)
 		{
 			_viewModel.GetCase();
+		}
+
+		private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+		{
+			_viewModel.AttributeChanged();
+		}
+
+		private void Save_Click(object sender, RoutedEventArgs e)
+		{
+			_viewModel.SaveCaseAttribute();
 		}
 	}
 }
